@@ -77,9 +77,9 @@ $j = 0; ?>
         // dataType: "jsonp"
         })
         .done(function(res) {
-            if(res['status'] == 200){
+            // if(res['status'] == 200){
                 window.location.href="http://localhost/img/questions.php";
-            }
+            // }
         console.log('success');
         })
         .fail(function(e) {

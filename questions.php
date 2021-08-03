@@ -26,7 +26,7 @@ $doc->loadHTML($page);
 $xpath = new DomXPath($doc);
 
 $nodeList = $xpath->query("///span[@class='c1']");
-$i=0;$j=0;
+$i=0;$j=1;
 foreach($nodeList as $item){
 
     if($nodeList->item($i)->nodeValue == '+-----+'){
@@ -53,7 +53,7 @@ foreach($nodeList as $item){
                 <input type="radio"  name="Q<?php echo $j;?>-d" value="yes">Yes 
                 <input type="radio"  name="Q<?php echo $j;?>-d" value="no">No<br>
                 <input type="text" placeholder="Change / Rephrase" name="Q<?php echo $j;?>-d"><br> 
-                <input type="submit" value="submit" onClick="aa('<?php echo "user".$j;?>')">
+                <input type="submit" value="Next" onClick="formsub('<?php echo "user".$j;?>',<?php echo $j;?>)">
             
                 <hr><hr>
             </form>
@@ -67,14 +67,14 @@ foreach($nodeList as $item){
 }
 ?>
 </div>
-<button id="click">Click</button>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 <script type="text/javascript">
-function aa(form_id){
+function formsub(form_id,ID){
+    console.log(ID)
     $( '#'+form_id ).submit(function( event ) {
         
-        var $formData = $('#user1').serializeArray();
+        var $formData = $('#'+form_id).serializeArray();
         // var formData = JSON.stringify($('#user1').serializeObject());
         // console.log(formData);
         event.preventDefault();
@@ -103,13 +103,13 @@ function aa(form_id){
 }
 </script>
 <script>
-    var button = document.querySelector('#user0').addEventListener('click', display);
     var allDiv= document.querySelectorAll('.grid');
-    var count=0;
+    console.log(allDiv);
+    var count=1;
     function display(){
         
         if (count >= allDiv.length){
-            count = 0;alert('yt');
+            count = 1;
         }
         for (let i = 0; i < allDiv.length; i++) {
             
