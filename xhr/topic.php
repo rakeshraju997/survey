@@ -1,40 +1,35 @@
 <?php
 include '../config.php';
-
     
     $topics = $_GET['topic'];
     foreach($topics as $topic){
-        if($topic['name'] == 'yes_no'){
-            $flag=1;
-        }
-        if($flag==0){
-            $return[] =  $topic['value'];
-            $query = "INSERT INTO `topic`(`user_id`, `email`, `phone`) VALUES('".$_GET['user_name']."','".$_GET['email']."',".$_GET['phone'].")" ;
-            $sql      = mysqli_query($sqlConnect,$query );
-        }else{
-            // $return[] =  $topic['value'];
-            // $query = "INSERT INTO `topic`(`user_id`, `email`, `phone`) VALUES('".$_GET['user_name']."','".$_GET['email']."',".$_GET['phone'].")" ;
-            // $sql      = mysqli_query($sqlConnect,$query );
-        }
-            
-            
         
-
-        // if($topic['name'] == 'sugg_topic'){
-        //     $returnn[] =  $topic['value'];
-        // }
+        if(substr($topic['name'],0,5) == 'topic'){
+            $topic_survey[$topic['name']] =  $topic['value'];
+        }   
+        
+        if($topic['name'] == 'sugg_topic'){
+            //topic suggest
+            $query = "INSERT INTO `topic_sugg`(`user_id`,`topic_sugg` ) VALUES('". $_SESSION['user_id'] ."','". $topic['value'] ."')" ;
+            $sql1 = mysqli_query($sqlConnect,$query);
+        }
     }
-    
-    // if($sql){
+    //topic table
+    $fields = '`' . implode('`, `', array_keys($topic_survey)) . '`';
+    $datas   = '\'' . implode('\', \'', $topic_survey) . '\'';
+    $query = "INSERT INTO `topic`(`user_id`,". $fields .") VALUES('". $_SESSION['user_id'] ."',".$datas.")" ;
+    $sql2     = mysqli_query($sqlConnect,$query );
+
+    if($sql1 && $sql2){
         $data = array(
             'status' => 200,
-            'html' => $topics
+            'html' => $query
         );
-    // }else{
-        // $data = array(
-        //     'status' => 400
-        // );
-    // }
+    }else{
+        $data = array(
+            'status' => 400
+        );
+    }
    
     header("Content-type: application/json");
     echo json_encode($data);

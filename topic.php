@@ -10,7 +10,7 @@ $j = 0; ?>
 <form id="topic" method="POST">
     <?php foreach ($nodeList as $item) {
         if ($nodeList->item($i)->nodeValue[0] == '#') {  ?>
-            <input type="checkbox" name="topic<?php echo $i;?>">
+            <input type="checkbox" value="1" name="topic<?php echo $i;?>">
     <?php
             echo substr($nodeList->item($i)->nodeValue, 3) . "<br>";
         } else {
@@ -78,8 +78,7 @@ $j = 0; ?>
         })
         .done(function(res) {
             if(res['status'] == 200){
-                console.log(res['html']);
-                // window.location.href="http://localhost/img/topic.php";
+                window.location.href="http://localhost/img/questions.php";
             }
         console.log('success');
         })
