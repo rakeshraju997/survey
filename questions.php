@@ -42,8 +42,8 @@ textarea {
         $doc = new DOMDocument();
         $doc->loadHTML($page);
         $xpath = new DomXPath($doc);
-        $nodeList = $xpath->query("///span[@class='c1']");
-        $i = 0;
+        $nodeList = $xpath->query("///span[@class='c0']");
+        $i = 1;
         $j = 1;
         foreach ($nodeList as $item) {
             if ($nodeList->item($i)->nodeValue == '+-----+') {
