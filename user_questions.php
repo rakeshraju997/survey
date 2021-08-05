@@ -105,10 +105,8 @@
                 qNO=qNO+5;
                 for(i;i<qNO;i++){
                     data[$formData[i]['name']] = $formData[i]['value'];
-                }
-                console.log(data);
-                
-                
+                } 
+               
                 $.ajax({
                 url: "https://script.google.com/macros/s/AKfycbxQfXC7mLdb4VazkLhpucz_z1A0VGUAqbmle1k7xuVGPMgo2nONOywWc5w_TOVGNZvN/exec",
                 type: "POST",
@@ -117,9 +115,11 @@
                 dataType: 'jsonp'
                 })
                 .done(function(res) {
+                    
                 console.log('success')
                 })
                 .fail(function(e) {
+                    window.location.href = "http://localhost/img/finalmsg.html";
                 console.log("error")
                 });
 
