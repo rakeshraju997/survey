@@ -1,32 +1,15 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Survey</title>
-    <style>
-        body {
-            -webkit-user-select: none;
-            -moz-user-select: -moz-none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        .grid {
-            display: none;
-        }
-        /* input,
-textarea {
-     -moz-user-select: text;
-} */
-    </style>
-</head>
+<?php include 'header.php';?>
+<style>
+    
+    .form-control{
+        width:50% !important;
+
+    }
+</style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Questions</a>
 </nav>
-<body>
+
     <div class="grid container" style="display:block">
         <?php
         error_reporting(0);
@@ -44,88 +27,102 @@ textarea {
             }
             if ($nodeList->item($i)->nodeValue == '+-----+') {
         ?>
-                <form class="form-group" id="user<?php echo $j; ?>" method="POST">
+               <form class="form-group" id="user<?php echo $j; ?>" method="POST">
                     <b> Is the question relevant</b><br>
                     <?php //echo $j; 
                     ?>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="Q" value="1">
-                        <label class="form-check-label">Yes</label>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input"  id="customRadio-<?php echo $j; ?>" name="Q" value="1">
+                        <label class="custom-control-label"  for="customRadio-<?php echo $j; ?>">Yes</label>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="Q" value="0">
-                        <label class="form-check-label">No</label>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input"  id="customRadio1-<?php echo $j; ?>" name="Q" value="0">
+                        <label class="custom-control-label"  for="customRadio1-<?php echo $j; ?>">No</label>
                     </div>
-                    <br>
-                    <b>Is option A relevant</b> <br>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" onclick="div('<?php echo $j; ?>-a')" name="A" value="1">
-                        <label class="form-check-label">Yes</label>
+                    
+                    <div class="form-group">
+                        <b>Is option A relevant</b> <br>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" onclick="div('<?php echo $j; ?>-a')" name="A" value="0">
-                        <label class="form-check-label">No</label>
+                    <div class="custom-control custom-radio">
+                        <input  type="radio" class="custom-control-input" id="customRadioA<?php echo $j; ?>" onclick="div('<?php echo $j; ?>-a')" name="A" value="1">
+                        <label  class="custom-control-label"  for="customRadioA<?php echo $j; ?>">Yes</label>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" onclick="div('<?php echo $j; ?>-a')" name="A" value="">
-                        <label class="form-check-label">Rephrase</label>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="customRadioa-<?php echo $j; ?>" onclick="div('<?php echo $j; ?>-a')" name="A" value="0">
+                        <label class="custom-control-label"  for="customRadioa-<?php echo $j; ?>">No</label>
                     </div>
-                    <input type="text" id="<?php echo $j; ?>-a" style="display: none" placeholder="Change / Rephrase" name="A"><br>
-                    <b>Is option B relevant</b> <br>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" onclick="div('<?php echo $j; ?>-b')" name="B" value="1">
-                        <label class="form-check-label">Yes</label>
+                    <div class="custom-control custom-radio">
+                        <input  type="radio" class="custom-control-input" id="customRadioAa<?php echo $j; ?>" onclick="div('<?php echo $j; ?>-a')" name="A" value="">
+                        <label class="custom-control-label"  for="customRadioAa<?php echo $j; ?>">Rephrase</label>
+                        <input class="form-control" type="text" id="<?php echo $j; ?>-a" style="display: none" placeholder="Change / Rephrase" name="A">
+ 
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" onclick="div('<?php echo $j; ?>-b')" name="B" value="0">
-                        <label class="form-check-label">No</label>
+                    <div class="form-group">
+                        <b>Is option B relevant</b>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" onclick="div('<?php echo $j; ?>-b')" name="B" value="">
-                        <label class="form-check-label">Rephrase</label>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="customRadioB<?php echo $j; ?>" onclick="div('<?php echo $j; ?>-b')" name="B" value="1">
+                        <label class="custom-control-label"  for="customRadioB<?php echo $j; ?>">Yes</label>
                     </div>
-                    <input type="text" id="<?php echo $j; ?>-b" style="display: none" placeholder="Change / Rephrase" name="B"><br>
-                    <b>Is option C relevant</b> <br>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" onclick="div('<?php echo $j; ?>-c')" name="C" value="1">
-                        <label class="form-check-label">Yes</label>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="customRadiob<?php echo $j; ?>" onclick="div('<?php echo $j; ?>-b')" name="B" value="0">
+                        <label  class="custom-control-label"  for="customRadiob<?php echo $j; ?>">No</label>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" onclick="div('<?php echo $j; ?>-c')" name="C" value="0">
-                        <label class="form-check-label">No</label>
+                    <div class="custom-control custom-radio">
+                        <input  type="radio" class="custom-control-input" id="customRadioBb<?php echo $j; ?>" onclick="div('<?php echo $j; ?>-b')" name="B" value="">
+                        <label  class="custom-control-label" for="customRadioBb<?php echo $j; ?>">Rephrase</label>
+                        <input  class="form-control" type="text" id="<?php echo $j; ?>-b" style="display: none" placeholder="Change / Rephrase" name="B">
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" onclick="div('<?php echo $j; ?>-c')" name="C" value="">
-                        <label class="form-check-label">Rephrase</label>
+                    <div class="form-group">
+                    <b>Is option C relevant</b> 
                     </div>
-                    <input type="text" id="<?php echo $j; ?>-c" style="display: none" placeholder="Change / Rephrase" name="C"><br>
-                    <b> Is option D relevant </b><br>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" onclick="div('<?php echo $j; ?>-d')" name="D" value="1">
-                        <label class="form-check-label">Yes</label>
+                    <div class="custom-control custom-radio">
+                        <input  type="radio" class="custom-control-input" id="customRadioC<?php echo $j; ?>" onclick="div('<?php echo $j; ?>-c')" name="C" value="1">
+                        <label class="custom-control-label"  for="customRadioC<?php echo $j; ?>">Yes</label>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" class="form-check-input" type="radio" onclick="div('<?php echo $j; ?>-d')" name="D" value="0">
-                        <label class="form-check-label">No</label>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="customRadioc<?php echo $j; ?>" onclick="div('<?php echo $j; ?>-c')" name="C" value="0">
+                        <label class="custom-control-label"  for="customRadioc<?php echo $j; ?>">No</label>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" onclick="div('<?php echo $j; ?>-d')" name="D" value="">
-                        <label class="form-check-label">Rephrase</label>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="customRadioCc<?php echo $j; ?>" onclick="div('<?php echo $j; ?>-c')" name="C" value="">
+                        <label class="custom-control-label" for="customRadioCc<?php echo $j; ?>">Rephrase</label>
+                        <input  class="form-control" type="text" id="<?php echo $j; ?>-c" style="display: none" placeholder="Change / Rephrase" name="C"><br>
+
                     </div>
-                    <input type="text" id="<?php echo $j; ?>-d" style="display: none" placeholder="Change / Rephrase" name="D"><br>
-                    <br>
-                    <input type="submit" value="Next" class="btn btn-sm btn-info" onClick="formsub('<?php echo "user" . $j; ?>',<?php echo $j; ?>)">
+                    <div class="form-group">
+                        <b> Is option D relevant </b>
+                   </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="customRadioD<?php echo $j; ?>" onclick="div('<?php echo $j; ?>-d')" name="D" value="1">
+                        <label class="custom-control-label"  for="customRadioD<?php echo $j; ?>">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="customRadiod<?php echo $j; ?>" onclick="div('<?php echo $j; ?>-d')" name="D" value="0">
+                        <label class="custom-control-label"  for="customRadiod<?php echo $j; ?>">No</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="customRadioDd<?php echo $j; ?>" onclick="div('<?php echo $j; ?>-d')" name="D" value="">
+                        <label class="custom-control-label"  for="customRadioDd<?php echo $j; ?>">Rephrase</label>
+                        <input class="form-control" type="text" id="<?php echo $j; ?>-d" style="display: none" placeholder="Change / Rephrase" name="D">
+                    </div><br>
+                    <div>
+                    <input type="submit" value="Next" class="btn btn-primary" onClick="formsub('<?php echo "user" . $j; ?>',<?php echo $j; ?>)">
+                    </div>
                 </form>
         <?php
                 echo '</div><div class="grid container">';
                 $j++;
             }
-            echo $nodeList->item($i)->nodeValue . "<br>";
+            if($nodeList->item($i)->nodeValue != '+-----+'){
+                echo $nodeList->item($i)->nodeValue . "<br>";
+            }
+            
             ++$i;
         }
         ?>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <?php include 'footer.php';?>
     <script type="text/javascript">
         function div(id) {
             if (event.target.value == '') {
@@ -182,9 +179,3 @@ textarea {
             return end_string;
         }
     </script>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
-</html>

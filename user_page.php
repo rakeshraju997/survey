@@ -1,10 +1,8 @@
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+<?php include 'header.php';?>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Details</a>
+</nav>
 <form id="user_form">
 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto  form p-4">
 <h3>Enter your details</h3><br>
@@ -25,7 +23,7 @@
     </div>
 </div>
 </form>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<?php include 'footer.php';?>
 <script type="text/javascript">
 $('#user_form').submit(function( event ) {
         var $formData = $('#user_form').serializeArray();
@@ -46,10 +44,8 @@ $('#user_form').submit(function( event ) {
         .fail(function(e) {
         console.log('error')
         });
-
-        // window.receipt = function(res) {
-        // // this function will execute upon finish
-        // }
     });
 
 </script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+<?php include 'header.php';?>
 <style>
     .form-input{
         margin: -12px 6px 0px;
@@ -11,18 +12,11 @@
         position: relative;
     top: 2.5em;
     margin-left: 12em;
-     }
-        
+     }   
 </style>
-<!doctype html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css" rel="stylesheet">
-    <title>User Suggestions</title>
-</head>
-<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Suggest Your Questions</a>
+</nav>
     <section class="text-gray-600 body-font relative">
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-col text-center w-full mb-12">
@@ -32,7 +26,7 @@
             <div class="lg:w-1/2 md:w-2/3 mx-auto">
 <form class="" id="user_questions" method="POST">
                 <div class="question-form flex flex-wrap -m-2">
-                    <h2 class="font-medium title-font text-gray-900 form-input">Question 1</h2>
+                    <h3>Question 1</h3>
                     <div class="p-2 w-full">
                         <div class="relative">
                             <label for="message" class="leading-7 text-sm text-gray-600">Enter your question here.</label>
@@ -72,7 +66,7 @@
         </div>
         </div>
     </section>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <?php include 'footer.php';?>
     <script type="text/javascript">
         $(document).ready(function() {
             var max_fields = 10; //maximum input boxes allowed
@@ -130,5 +124,3 @@
             });
         });
     </script>
-</body>
-</html>
