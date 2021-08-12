@@ -65,7 +65,7 @@ $j = 0; ?>
                 <?php foreach ($nodeList as $item) {
             if ($nodeList->item($i)->nodeValue[0] == '#') {  ?>
                 <div class="p-2 sm:w-1/2 w-full">
-                    <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+                    <div class="bg-gray-100 rounded flex p-2.5 items-center">
                         <span class="title-font font-medium">
                             <div class="inline-flex items-center">
                                 <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" value="1"
@@ -111,13 +111,13 @@ $j = 0; ?>
 
             <div id="extra" style="display:none">
                 <div class="input_fields_wrap">
-                    <div class="form-group p-4 form-values">
+                    <div class="form-group p-2.5 form-values">
                         <button class="add_field_button btn btn-secondary ">Add Topic</button>
                     </div>
 
                     <div class="form-group">
                         <input type="text" style="width: 40%;margin-left: 11%;"
-                            class="p-2 sm:w-1/2 w-full bg-gray-100 rounded flex p-4 h-full items-center title-font font-medium"
+                            class="p-2 sm:w-1/2 w-full bg-gray-100 rounded flex p-2.5 items-center title-font font-medium"
                             name="sugg_topic" placeholder="Enter Topic">
                     </div>
 
@@ -143,7 +143,7 @@ $(document).ready(function() {
         if (x < max_fields) { //max input box allowed
             x++; //text box increment
             $(wrapper).append(
-                '<div><input type="text"  style="width: 40%;margin-left: 11%;" class="p-2 sm:w-1/2 w-full bg-gray-100 rounded flex p-4 h-full items-center title-font font-medium"  placeholder="Enter Topic" name="sugg_topic" /><button type="button" class="close close_qstn remove_field form-position" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><br>'
+                '<div><input type="text"  style="width: 40%;margin-left: 11%;" class="p-2 sm:w-1/2 w-full bg-gray-100 rounded flex p-2.5 items-center title-font font-medium"  placeholder="Enter Topic" name="sugg_topic" /><button type="button" class="close close_qstn remove_field form-position" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><br>'
                 ); //add input box
         }
     });
