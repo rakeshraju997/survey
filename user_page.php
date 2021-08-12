@@ -83,6 +83,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Details</a>
 </nav>
+<form id="user_form">
 <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
     <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
@@ -95,35 +96,37 @@
       Mentor Merlin is the largest and leading NMC CBT training provider in the world. Mentor Merlin’s NMC CBT online practice and NMC CBT mock test include previously asked Latest NMC CBT exam questions and answers. Our NMC CBT Exam Preparation course is developed by a team of well-experienced nursing professionals. We regularly update our NMC CBT guide to the nurses seeking nursing jobs in the UK, hence our material is based on the upgraded syllabus with constant researches.
         </p>
     </div>
+   
     <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
       <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Enter Your Details</h2>
       
       <div class="relative mb-4">
         <label for="inp" class="inp">
-        <input type="text" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" id="inp" placeholder="&nbsp;">
+        <input type="text" name="user_name" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"  placeholder="&nbsp;">
         <span class="label">Name</span>
         <span class="focus-bg"></span>
         </label>
     </div>
     <div class="relative mb-4">
         <label for="inp" class="inp">
-        <input type="text" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" id="inp" placeholder="&nbsp;">
+        <input type="text" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"  placeholder="&nbsp;">
         <span class="label">Email</span>
         <span class="focus-bg"></span>
         </label>
     </div>
     <div class="relative mb-4">
         <label for="inp" class="inp leading-7 text-sm text-gray-600">
-        <input type="text" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" id="inp" placeholder="&nbsp;">
+        <input type="text" name="phone" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"  placeholder="&nbsp;">
         <span class="label">Contact no</span>
         <span class="focus-bg"></span>
         </label>
     </div>
      
-      <a style="text-decoration: none" id="user_form" href="https://localhost/img/topic.php" class="text-center text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" type="submit">Next</a>
+      <button style="text-decoration: none" id="user_form"  class="text-center text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" type="submit">Next</button>
     </div>
   </div>
 </section>
+</form>
 <!-- <form id="user_form">
 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto  form p-4">
 <h3>Enter your details</h3><br>
@@ -152,6 +155,7 @@
 $('#user_form').submit(function( event ) {
         var $formData = $('#user_form').serializeArray();
         event.preventDefault();
+        console.log($formData);
         $.ajax({
         url: "http://localhost/img/xhr/user_details.php",
         type: "GET",
