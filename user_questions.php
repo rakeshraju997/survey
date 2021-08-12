@@ -117,7 +117,7 @@
                 console.log('success')
                 })
                 .fail(function(e) {
-                    window.location.href = "http://localhost/img/finalmsg.html";
+                    window.location.href = "http://localhost/img/finalmsg.php";
                 console.log("error")
                 });
 
