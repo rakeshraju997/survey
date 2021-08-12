@@ -1,5 +1,6 @@
 
 <link  href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/utilities.css" rel="stylesheet" >
+<?php session_destroy();?>
 <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto">
     <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
