@@ -69,6 +69,9 @@
     <?php include 'footer.php';?>
     <script type="text/javascript">
         $(document).ready(function() {
+            var user_name = <?php echo json_encode($_SESSION['user_name']); ?>;
+            var user_id = <?php echo json_encode($_SESSION['user_id']); ?>;
+
             var max_fields = 10; //maximum input boxes allowed
             var wrapper = $(".question-form"); //Fields wrapper
             var add_button = $(".add-question-button"); //Add button ID
@@ -100,7 +103,8 @@
                 for(i;i<qNO;i++){
                     data[$formData[i]['name']] = $formData[i]['value'];
                 } 
-               
+               data['userName'] = user_name;
+               data['userID'] = user_id;
                 $.ajax({
                 url: "https://script.google.com/macros/s/AKfycbxQfXC7mLdb4VazkLhpucz_z1A0VGUAqbmle1k7xuVGPMgo2nONOywWc5w_TOVGNZvN/exec",
                 type: "POST",

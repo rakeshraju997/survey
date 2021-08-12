@@ -5,6 +5,7 @@ include '../config.php';
     $sql      = mysqli_query($sqlConnect,$query );
     $user_id   = mysqli_insert_id($sqlConnect);
     $_SESSION['user_id'] = $user_id;
+    $_SESSION['user_name'] = $_GET['user_name'];
     if($sql){
         $data = array(
             'status' => 200,
