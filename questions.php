@@ -39,7 +39,6 @@
                         <label class="custom-control-label" for="customRadioq-<?php echo $j; ?>">Yes</label>
                     </div>
                 </span>
-                
                 <section class="text-gray-600 body-font overflow-hidden">
                 <div class="container">
                     <div class="flex flex-wrap">
@@ -138,6 +137,7 @@
         </div> 
   </div>
 </section>
+   </form>
         <?php
                 echo '</div><div class="grid container">';
                 $j++;
@@ -149,8 +149,7 @@
             ++$i;
         }
         ?>
-    </div>
-    </form>
+                  </div>
     <?php include 'footer.php';?>
     <script type="text/javascript">
         function div(id) {
