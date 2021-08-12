@@ -23,26 +23,22 @@
         $i = 1;
         $j = 1;
         foreach ($nodeList as $item) {
-            if ($nodeList->item($i)->nodeValue == '*-----*') {
-                //echo '<script>alert(1212)</script>';
-            }
             if ($nodeList->item($i)->nodeValue == '+-----+') {
         ?>
                <form class="form-group" id="user<?php echo $j; ?>" method="POST">
                <span class="title-font font-medium form-values custom-control-inline" style="padding-top: 15px;">
                 <label  for="yes_no_radio">Is the question relevant</label>
                         <div class="custom-control custom-radio custom-control-inline">
-                        <input class="custom-control-input" id="customRadio" type="radio" name="yes_no" value="no">
+                        <input class="custom-control-input" id="customRadio-<?php echo $j; ?>" type="radio" name="Q" value="no">
                         <span class="checkmark"></span>
-                        <label class="custom-control-label" for="customRadio">No</label>
+                        <label class="custom-control-label" for="customRadio-<?php echo $j; ?>">No</label>
                         </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input class="custom-control-input" id="customRadio-<?php echo $j; ?>" name="Q" value="1">
+                        <input class="custom-control-input" id="customRadioq-<?php echo $j; ?>" type="radio" name="Q" value="1">
                         <span class="checkmark"></span>
-                        <label class="custom-control-label" for="customRadio-<?php echo $j; ?>">Yes</label>
+                        <label class="custom-control-label" for="customRadioq-<?php echo $j; ?>">Yes</label>
                     </div>
                 </span>
-                </form>
                 <section class="text-gray-600 body-font overflow-hidden">
                 <div class="container">
                     <div class="flex flex-wrap">
@@ -137,10 +133,11 @@
       
     </div>
     <div class="form-group p-4">
-        <input type="submit" value="Next" class="btn btn-primary" onClick="formsub('<?php echo "user" . $j; ?>',<?php echo $j; ?>)">
+        <input type="submit" value="Next" class="btn btn-primary" onClick="formsub('<?php echo "user". $j; ?>',<?php echo $j; ?>)">
         </div> 
   </div>
 </section>
+   </form>
         <?php
                 echo '</div><div class="grid container">';
                 $j++;
@@ -152,7 +149,7 @@
             ++$i;
         }
         ?>
-    </div>
+                  </div>
     <?php include 'footer.php';?>
     <script type="text/javascript">
         function div(id) {
@@ -167,7 +164,6 @@
             $('#' + form_id).submit(function(event) {
                 var $formData = $("#" + form_id + " :input[value!='']").serializeArray();
                 event.preventDefault();
-                // var data = JSON.stringify($formData)
                 $.ajax({
                         url: "http://localhost/img/xhr/questions.php",
                         type: "GET",
