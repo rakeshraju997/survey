@@ -9,7 +9,7 @@
 }
 .inp .label {
   position: absolute;
-  top: 20px;
+  top: 14px;
   left: 12px;
   font-size: 16px;
   color: rgba(0, 0, 0, 0.5);
@@ -38,7 +38,7 @@
   border: 0;
   font-family: inherit;
   padding: 16px 12px 0 12px;
-  height: 55px;
+  height: px;
   font-size: 16px;
   font-weight: 400;
   background: rgba(0, 0, 0, 0.02);
@@ -85,7 +85,7 @@
 </nav>
 <form id="user_form">
 <section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+  <div class="container px-4 py-24 mx-auto flex flex-wrap items-center">
     <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
       <h1 class="title-font font-medium text-3xl text-gray-900">
       Welcome to Mentor Merlin!
@@ -102,21 +102,21 @@
       
       <div class="relative mb-4">
         <label for="inp" class="inp">
-        <input type="text" name="user_name" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 leading-8 transition-colors duration-200 ease-in-out" placeholder="&nbsp;" required>
+        <input type="text" name="user_name" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"  placeholder="&nbsp;">
         <span class="label">Name</span>
         <span class="focus-bg"></span>
         </label>
     </div>
     <div class="relative mb-4">
         <label for="inp" class="inp">
-        <input type="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 leading-8 transition-colors duration-200 ease-in-out" placeholder="&nbsp;" required>
+        <input type="text" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"  placeholder="&nbsp;">
         <span class="label">Email</span>
         <span class="focus-bg"></span>
         </label>
     </div>
     <div class="relative mb-4">
         <label for="inp" class="inp leading-7 text-sm text-gray-600">
-        <input type="text" name="phone" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 leading-8 transition-colors duration-200 ease-in-out"  pattern="[789][0-9]{9}" placeholder="&nbsp;" required>
+        <input type="text" name="phone" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"  placeholder="&nbsp;">
         <span class="label">Contact no</span>
         <span class="focus-bg"></span>
         </label>
