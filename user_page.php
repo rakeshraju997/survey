@@ -38,7 +38,7 @@
   border: 0;
   font-family: inherit;
   padding: 16px 12px 0 12px;
-  height: px;
+  height: 48px;
   font-size: 16px;
   font-weight: 400;
   background: rgba(0, 0, 0, 0.02);
