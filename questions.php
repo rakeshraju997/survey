@@ -1,4 +1,7 @@
 <style>
+    .custom-control-inline {
+    margin-right: 0rem !important;
+}
     .custom-control {
         padding-left: 2.5rem !important;
 }
@@ -130,7 +133,7 @@
         </div> -->
               
       </div>
-      
+            </div>
     </div>
     <div class="form-group p-4">
         <input type="submit" value="Next" class="btn btn-primary" onClick="formsub('<?php echo "user". $j; ?>',<?php echo $j; ?>)">
