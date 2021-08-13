@@ -21,13 +21,6 @@
 .form-value {
     margin-left: 8.3em;
 }
-
-.form-content {
-    /* background-color:#def4ff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 15px 15px 40px #5ed7ff, 15px 15px 40px #75edf5; */
-}
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
