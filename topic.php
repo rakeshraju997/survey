@@ -5,7 +5,6 @@
         bottom: -2.3em;
         left: 51%;
     }
-
     .form-values {
         margin-left: 6em;
     }
