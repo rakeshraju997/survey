@@ -44,7 +44,7 @@ $j = 0; ?>
                                         <div><input type="checkbox" class="form-checkbox w-5 h-5 text-blue-600" value="1" name="topic<?php echo $i - 1; ?>"></div>
                                         <div class="ml-3"><label><?php echo substr($nodeList->item($i)->nodeValue, 3); ?></label></div>
                                     </div>
-                                </span>
+                                </span> 
                             </div>
                         </div>
 
