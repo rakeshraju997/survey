@@ -5,6 +5,9 @@
     .custom-control {
         padding-left: 2.5rem !important;
 }
+.items_align{
+    padding: 5% 0%;
+}
 .p-4 {
     padding: 1.5rem!important;
 }</style>
@@ -43,9 +46,8 @@
                     </div>
                 </span>
                 <section class="text-gray-600 body-font overflow-hidden">
-                <div class="container">
-                    <div class="flex flex-wrap">
-                    <div class="md:w-1/2 flex flex-col items-start p-2">
+                <div>
+                    <div class="md:w-1/2 flex flex-col items-start items_align">
                         <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">Option A</span>
                         <h5 class=" title-font font-medium text-gray-900">Is option A relevant</h5>
                     <div class="custom-control custom-radio">
@@ -65,7 +67,7 @@
         <!-- <div class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100  w-full">
         </div> -->
       </div>
-      <div class=" md:w-1/2 flex flex-col items-start p-2">
+      <div class=" md:w-1/2 flex flex-col items-start items_align">
         <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">Option B</span>
         <h5 class="title-font font-medium text-gray-900 ">Is option B relevant</h5>
         <div class="custom-control custom-radio">
@@ -87,11 +89,9 @@
         </div> -->
         
       </div>
-    </div>
   </div>
-  <div class="container  mx-auto">
-    <div class="flex flex-wrap">
-      <div class=" md:w-1/2 flex flex-col items-start p-2">
+  <div >
+      <div class=" md:w-1/2 flex flex-col items-start items_align ">
         <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">Option C</span>
         <h5 class=" title-font font-medium text-gray-900">Is option C relevant</h5>
         <div class="custom-control custom-radio">
@@ -111,7 +111,7 @@
         <!-- <div class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100  w-full">
         </div> -->
       </div>
-      <div class=" md:w-1/2 flex flex-col items-start p-2">
+      <div class=" md:w-1/2 flex flex-col items-start p-1 items_align">
         <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">Option D</span>
         <h5 class="title-font font-medium text-gray-900 ">Is option D relevant</h5>
                     <div class="custom-control custom-radio">
@@ -133,7 +133,6 @@
         </div> -->
               
       </div>
-            </div>
     </div>
     <div class="form-group p-4">
         <input type="submit" value="Next" class="btn btn-primary" onClick="formsub('<?php echo "user". $j; ?>',<?php echo $j; ?>)">
