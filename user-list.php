@@ -13,14 +13,14 @@ $users = mysqli_query($sqlConnect, $query); ?>
                     <tr>
                         <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">ID</th>
                         <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Name</th>
-                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Date</th>
+                        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Phone </th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php while ($data = mysqli_fetch_array($users)) { ?>
                         <tr>
                             <td class="px-4 py-3"><?php echo $data['user_id']; ?></td>
-                            <td class="px-4 py-3"><a href="user-view.php?id=<?php echo $data['user_id']; ?>"><?php echo $data['user_name']; ?></a></td>
+                            <td class="px-4 py-3"><a href="user-view.php?id=<?php echo $data['user_id']; ?>"><?php echo ucwords($data['user_name']); ?></a></td>
                             <td class="px-4 py-3"><?php echo $data['phone']; ?></td>
                         </tr>
                     <?php } ?>
