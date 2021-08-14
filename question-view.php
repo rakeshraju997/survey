@@ -6,7 +6,6 @@ $key = array("", "0", "1");
 ?>
 <div class="grid container p-4" style="display:block">
     <?php
-    error_reporting(0);
     $page = file_get_contents('http://localhost/img/test.html');
     $doc = new DOMDocument();
     $doc->loadHTML($page);
