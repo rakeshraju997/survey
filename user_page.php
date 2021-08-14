@@ -3,13 +3,13 @@
   position: relative;
   margin: auto;
   width: 100%;
-  max-width: 280px;
+  max-width: 300px;
   border-radius: 7px;
   overflow: hidden;
 }
 .inp .label {
   position: absolute;
-  top: 14px;
+  top:12px;
   left: 12px;
   font-size: 16px;
   color: rgba(0, 0, 0, 0.5);
@@ -37,8 +37,8 @@
   width: 100%;
   border: 0;
   font-family: inherit;
-  padding: 16px 12px 0 12px;
-  height: 48px;
+  padding: 14px 12px 0 12px;
+  height: 53px;
   font-size: 16px;
   font-weight: 400;
   background: rgba(0, 0, 0, 0.02);
