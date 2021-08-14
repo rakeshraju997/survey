@@ -1,12 +1,10 @@
-<?php include 'header.php';?>
+<?php include 'header.php'; ?>
 <style>
     .close_qstn {
         position: absolute;
         bottom: -2.3em;
         left: 51%;
     }
-
-}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -33,13 +31,9 @@ $j = 0; ?>
                             <label class="" for="yes_no_radio">
                                 <?php echo $nodeList->item($i)->nodeValue ?> </label>
                         </span>
-                   
+                    </div>
+                </div>
             </div>
-               <!-- <div class="text-center">
-      <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
-      <?php  //echo $nodeList->item($i)->nodeValue ?>
-       .</p>
-    </div> --> 
             <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
                 <?php foreach ($nodeList as $item) {
                     if ($nodeList->item($i)->nodeValue[0] == '#') {  ?>
@@ -50,21 +44,15 @@ $j = 0; ?>
                                         <div><input type="checkbox" class="form-checkbox w-5 h-5 text-blue-600" value="1" name="topic<?php echo $i - 1; ?>"></div>
                                         <div class="ml-3"><label><?php echo substr($nodeList->item($i)->nodeValue, 3); ?></label></div>
                                     </div>
-                                </span> 
+                                </span>
                             </div>
-                            <?php
-                echo substr($nodeList->item($i)->nodeValue, 3);?>
-                        </span>
-                    </div>
-                </div>
+                        </div>
 
                 <?php  }
-            
-            $i++;
-            
-        }
-                ?>
 
+                    $i++;
+                }
+                ?>
 
             </div>
             <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2 md:justify-between p-2">
@@ -102,105 +90,87 @@ $j = 0; ?>
                     </div>
                 </span>
             </div> -->
-            <span class="title-font font-medium container">
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input class="custom-control-input" id="customRadio" type="radio" name="yes_no" value="no">
-                    <span class="checkmark"></span>
-                    <label class="custom-control-label" for="customRadio">No</label>
-                </div>
-            </span>
-            <span class="title-font font-medium  px-5">
-
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input class="custom-control-input" id="customRadio2" type="radio" name="yes_no" value="yes">
-                    <span class="checkmark"></span>
-                    <label class="custom-control-label" for="customRadio2">Yes</label>
-                </div>
-            </span>
-    </div>
-           
 
 
-            <div id="extra"class="title-font font-medium p-2" style="display:none">
-                <div class="input_fields_wrap px-4">
-                    <div class="form-group p-2.5">
+
+            <div id="extra" style="display:none">
+                <div class="input_fields_wrap">
+                    <div class="form-group p-2.5 form-values">
                         <button class="add_field_button btn btn-secondary ">Add Topic</button>
                     </div>
 
                     <div class="form-group">
-                        <input type="text" 
-                            class="p-2 sm:w-1/2 w-full bg-gray-100 rounded flex p-2.5 items-center title-font font-medium"
-                            name="sugg_topic" placeholder="Enter Topic">
+                        <input type="text" style="width: 40%;margin-left: 11%;" class="p-2 sm:w-1/2 w-full bg-gray-100 rounded flex p-2.5 items-center title-font font-medium" name="sugg_topic" placeholder="Enter Topic">
                     </div>
 
                 </div>
             </div>
 
-            <div class="text-left px-5 mx-auto">
+            <div class="text-center">
                 <button type="submit" name="submit" value="Submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
     </section>
 </form>
-<?php include 'footer.php';?>
+<?php include 'footer.php'; ?>
 <script type="text/javascript">
-$(document).ready(function() {
-    var max_fields = 10; //maximum input boxes allowed
-    var wrapper = $(".input_fields_wrap"); //Fields wrapper
-    var add_button = $(".add_field_button"); //Add button ID
-    var x = 1; //initlal text box count
-    $(add_button).click(function(e) { //on add input button click
-        e.preventDefault();
-        if (x < max_fields) { //max input box allowed
-            x++; //text box increment
-            $(wrapper).append(
-                '<div ><input type="text"  class= " sm:w-1/2 w-full bg-gray-100 rounded flex p-2.5 items-center title-font font-medium"  placeholder="Enter Topic" name="sugg_topic" /><button type="button" class="close close_qstn remove_field form-position" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><br>'
+    $(document).ready(function() {
+        var max_fields = 10; //maximum input boxes allowed
+        var wrapper = $(".input_fields_wrap"); //Fields wrapper
+        var add_button = $(".add_field_button"); //Add button ID
+        var x = 1; //initlal text box count
+        $(add_button).click(function(e) { //on add input button click
+            e.preventDefault();
+            if (x < max_fields) { //max input box allowed
+                x++; //text box increment
+                $(wrapper).append(
+                    '<div><input type="text"  style="width: 40%;margin-left: 11%;" class="p-2 sm:w-1/2 w-full bg-gray-100 rounded flex p-2.5 items-center title-font font-medium"  placeholder="Enter Topic" name="sugg_topic" /><button type="button" class="close close_qstn remove_field form-position" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><br>'
                 ); //add input box
+            }
+        });
+        $(wrapper).on("click", ".remove_field", function(e) { //user click on remove text
+            e.preventDefault();
+            $(this).parent('div').remove();
+            x--;
+        })
+    });
+    $("input[type='radio']").change(function() {
+        if ($(this).val() == "yes") {
+            $("#extra").show();
+        } else {
+            var elements = document.getElementsByClassName("extra");
+            for (var i = 0, len = elements.length; i < len; i++) {
+                elements[i].value = '';
+            }
+            $("#extra").hide();
         }
     });
-    $(wrapper).on("click", ".remove_field", function(e) { //user click on remove text
-        e.preventDefault();
-        $(this).parent('div').remove();
-        x--;
-    })
-});
-$("input[type='radio']").change(function() {
-    if ($(this).val() == "yes") {
-        $("#extra").show();
-    } else {
-        var elements = document.getElementsByClassName("extra");
-        for (var i = 0, len = elements.length; i < len; i++) {
-            elements[i].value = '';
+    //ajax
+    $('#topic').submit(function(event) {
+        var $formData = $('#topic').serializeArray();
+        console.log($formData);
+        var aa = 'rewr';
+        event.preventDefault();
+        $.ajax({
+                url: "http://localhost/img/xhr/topic.php",
+                type: "GET",
+                data: {
+                    'topic': $formData
+                },
+                contentType: "application/json"
+                // dataType: "jsonp"
+            })
+            .done(function(res) {
+                // if(res['status'] == 200){
+                window.location.href = "http://localhost/img/questions.php";
+                // }
+                console.log('success');
+            })
+            .fail(function(e) {
+                console.log('error')
+            });
+        window.receipt = function(res) {
+            // this function will execute upon finish
         }
-        $("#extra").hide();
-    }
-});
-//ajax
-$('#topic').submit(function(event) {
-    var $formData = $('#topic').serializeArray();
-    console.log($formData);
-    var aa = 'rewr';
-    event.preventDefault();
-    $.ajax({
-            url: "http://localhost/img/xhr/topic.php",
-            type: "GET",
-            data: {
-                'topic': $formData
-            },
-            contentType: "application/json"
-            // dataType: "jsonp"
-        })
-        .done(function(res) {
-            // if(res['status'] == 200){
-            window.location.href = "http://localhost/img/questions.php";
-            // }
-            console.log('success');
-        })
-        .fail(function(e) {
-            console.log('error')
-        });
-    window.receipt = function(res) {
-        // this function will execute upon finish
-    }
-});
+    });
 </script>
