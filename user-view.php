@@ -13,7 +13,7 @@ $xpath = new DomXPath($doc);
 $nodeList = $xpath->query("///span[@class='c0']");
 $i = 0;
 $j = 0; ?>
-
+<style>.grid{display:block;}</style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Review</a>
 </nav>
