@@ -5,15 +5,10 @@
         bottom: -2.3em;
         left: 51%;
     }
-    .form-values {
-        margin-left: 6em;
-    }
-
-    .form-value {
-        margin-left: 8.3em;
-    }
 </style>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="script.js"></script>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Topics</a>
 </nav>
@@ -29,35 +24,26 @@ $j = 0; ?>
 <form class="form-content" id="topic" method="POST">
     <section class="text-gray-600 body-font">
         <div class="container px-5  mx-auto">
-            <div class="container px-5  mx-auto">
-                <div class="p-2  w-full">
-                    <div class="rounded flex  h-full items-center" style="margin-left: 0.8em;">
-                        <span class="title-font font-medium p-4">
-                            <label class="container" for="yes_no_radio">
+            <div class="mx-auto lg:w-4/5">
+                <div class="md:p-2 w-full">
+                    <div class="rounded flex h-full items-center">
+                        <span class="title-font font-medium pt-4 ">
+                            <label class="" for="yes_no_radio">
                                 <?php echo $nodeList->item($i)->nodeValue ?> </label>
                         </span>
                     </div>
                 </div>
             </div>
-            <!-- <div class="text-center">
-      <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
-      <?php  //echo $nodeList->item($i)->nodeValue 
-        ?>
-       .</p>
-    </div> -->
             <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
                 <?php foreach ($nodeList as $item) {
                     if ($nodeList->item($i)->nodeValue[0] == '#') {  ?>
                         <div class="p-2 sm:w-1/2 w-full">
-                            <div class="bg-gray-100 rounded flex p-2.5 items-center">
+                            <div class="bg-gray-100 rounded flex p-2.5 items-center topic_container">
                                 <span class="title-font font-medium">
                                     <div class="inline-flex items-center">
                                         <div><input type="checkbox" class="form-checkbox w-5 h-5 text-blue-600" value="1" name="topic<?php echo $i - 1; ?>"></div>
                                         <div class="ml-3"><label><?php echo substr($nodeList->item($i)->nodeValue, 3); ?></label></div>
                                     </div>
-                                    <?php
-                                    //echo substr($nodeList->item($i)->nodeValue, 3); 
-                                    ?>
                                 </span>
                             </div>
                         </div>
@@ -69,12 +55,26 @@ $j = 0; ?>
                 ?>
 
             </div>
-            <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+            <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2 md:justify-between p-2">
                 <span class="title-font font-medium">
                     <label class="" for="yes_no_radio">Would you like to add any topics to the above list?</label>
                 </span>
+                <span class="title-font font-medium">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input class="custom-control-input" id="customRadio" type="radio" name="yes_no" value="no">
+                        <span class="checkmark"></span>
+                        <label class="custom-control-label" for="customRadio">No</label>
+                    </div>
+                </span>
+                <span class="title-font font-medium form-value">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input class="custom-control-input" id="customRadio2" type="radio" name="yes_no" value="yes">
+                        <span class="checkmark"></span>
+                        <label class="custom-control-label" for="customRadio2">Yes</label>
+                    </div>
+                </span>
             </div>
-            <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+            <!-- <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
                 <span class="title-font font-medium">
                     <div class="custom-control custom-radio custom-control-inline">
                         <input class="custom-control-input" id="customRadio" type="radio" name="yes_no" value="no">
@@ -89,7 +89,7 @@ $j = 0; ?>
                         <label class="custom-control-label" for="customRadio2">Yes</label>
                     </div>
                 </span>
-            </div>
+            </div> -->
 
 
 
@@ -105,12 +105,11 @@ $j = 0; ?>
 
                 </div>
             </div>
-            </span>
 
             <div class="text-center">
                 <button type="submit" name="submit" value="Submit" class="btn btn-primary">Submit</button>
             </div>
-            <!-- </div> -->
+        </div>
     </section>
 </form>
 <?php include 'footer.php'; ?>
