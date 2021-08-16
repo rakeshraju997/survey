@@ -16,11 +16,12 @@ $key = array("", "0", "1");
     foreach ($nodeList as $item) {
         if ($nodeList->item($j)->nodeValue != '+-----+') {
             echo $nodeList->item($j)->nodeValue . "<br>";
-        } else {
+        } else if ($nodeList->item($j)->nodeValue == '+-----+') { 
             $question_id = $p; // $_REQUEST['id'];
             $i = 0;
             $query = "SELECT * FROM `questions` where `question_no` = $question_id";
-            $questions = mysqli_query($sqlConnect, $query);
+            $questions = mysqli_query($sqlConnect, $query);        
+            unset($oq,$oa,$ob,$oc,$od);
             while ($data = mysqli_fetch_assoc($questions)) {
                 $oq[] = $data['Q'];
                 $oa[] = $data['A'];
@@ -28,11 +29,7 @@ $key = array("", "0", "1");
                 $oc[] = $data['C'];
                 $od[] = $data['D'];
                 $i++;
-            }
-            unset($optiona);
-            unset($optionb);
-            unset($optionc);
-            unset($optiond);
+            }            
             $optionq = array_count_values($oq);
             $optiona = array_count_values($oa);
             $optionb = array_count_values($ob);
