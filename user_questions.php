@@ -130,7 +130,7 @@
                         console.log('success')
                     })
                     .fail(function(e) {
-                        window.location.href = "http://localhost/img/finalmsg.php";
+                        window.location.href = "<?php echo $site_name;?>/finalmsg.php";
                         console.log("error")
                     });
 
