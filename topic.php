@@ -36,13 +36,13 @@ $j = 0; ?>
                 <?php foreach ($nodeList as $item) {
                     if ($nodeList->item($i)->nodeValue[0] == '#') {  ?>
                         <div class="p-2 sm:w-1/2 w-full">
-                            <div class="bg-gray-100 rounded flex p-2.5 items-center topic_container" >
+                            <div class="bg-gray-100 rounded flex p-2.5 items-center topic_container">
                                 <!-- <span class="title-font font-medium"> -->
-                                    <div class="inline-flex items-center title-font font-medium">
-                                        <div><input type="checkbox" class="form-checkbox w-5 h-5 text-blue-600" value="1" name="topic<?php echo $i - 1; ?>"></div>
-                                        <div class="ml-3"><label><?php echo substr($nodeList->item($i)->nodeValue, 3); ?></label></div>
-                                    </div>
-                               <!--  </span> -->
+                                <div class="inline-flex items-center title-font font-medium">
+                                    <div><input type="checkbox" class="form-checkbox w-5 h-5 text-blue-600" value="1" name="topic<?php echo $i - 1; ?>"></div>
+                                    <div class="ml-3"><label><?php echo substr($nodeList->item($i)->nodeValue, 3); ?></label></div>
+                                </div>
+                                <!--  </span> -->
                             </div>
                         </div>
 
@@ -90,16 +90,10 @@ $j = 0; ?>
             </div> -->
 
             <div id="extra" style="display:none">
-                <div class="input_fields_wrap  lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
-                    <div class="form-group p-2.5 form-values">
-                        <button class="add_field_button btn btn-secondary ">Add Topic</button>
-                    </div>
-
-                    <div class="form-group relative p-2.5">
-                        <input type="text" class="w-full bg-gray-100 rounded flex p-2.5 items-center title-font font-medium" name="sugg_topic" placeholder="Enter Topic">
-                        <button type="button" class="close delete_topic remove_field form-position" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </div>
-
+                <div class="form-group p-2.5 form-value lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+                    <button class="add_field_button btn btn-secondary ">Add Topic</button>
+                </div>
+                <div class="input_fields_wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
                 </div>
             </div>
 
@@ -115,11 +109,11 @@ $j = 0; ?>
         var max_fields = 10; //maximum input boxes allowed
         var wrapper = $(".input_fields_wrap"); //Fields wrapper
         var add_button = $(".add_field_button"); //Add button ID
-        var x = 1; //initlal text box count
+        var topics_count = 1; //initlal text box count
         $(add_button).click(function(e) { //on add input button click
             e.preventDefault();
-            if (x < max_fields) { //max input box allowed
-                x++; //text box increment
+            if (topics_count < max_fields) { //max input box allowed
+                topics_count++; //text box increment
                 $(wrapper).append(
                     '<div class="form-group relative p-2.5"><input type="text" class="p-2 w-full bg-gray-100 rounded flex p-2.5 items-center title-font font-medium"  placeholder="Enter Topic" name="sugg_topic" /><button type="button" class="close delete_topic remove_field form-position" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
                 ); //add input box        
@@ -127,18 +121,16 @@ $j = 0; ?>
         });
         $(wrapper).on("click", ".remove_field", function(e) { //user click on remove text
             e.preventDefault();
-            $(this).parent('div').remove();          
-            x--;
+            $(this).parent('div').remove();
+            topics_count--;
         })
     });
     $("input[type='radio']").change(function() {
         if ($(this).val() == "yes") {
-            $("#extra").show();
+            $("#extra").show();            
+            $(".input_fields_wrap").empty();
         } else {
-            var elements = document.getElementsByClassName("extra");
-            for (var i = 0, len = elements.length; i < len; i++) {
-                elements[i].value = '';
-            }
+            $(".input_fields_wrap").empty();
             $("#extra").hide();
         }
     });
@@ -146,7 +138,6 @@ $j = 0; ?>
     $('#topic').submit(function(event) {
         var $formData = $('#topic').serializeArray();
         console.log($formData);
-        var aa = 'rewr';
         event.preventDefault();
         $.ajax({
                 url: "<?php echo $site_name;?>/xhr/topic.php",
