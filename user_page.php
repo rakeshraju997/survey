@@ -157,7 +157,7 @@ $('#user_form').submit(function( event ) {
         event.preventDefault();
         console.log($formData);
         $.ajax({
-        url: "http://localhost/img/xhr/user_details.php",
+        url: "<?php echo $site_name;?>/xhr/user_details.php",
         type: "GET",
         data: {'user_name' : $formData[0]['value'],'email' : $formData[1]['value'],'phone' : $formData[2]['value']},
         contentType: "application/json"
@@ -165,7 +165,7 @@ $('#user_form').submit(function( event ) {
         })
         .done(function(res) {
             if(res['status'] == 200){
-                window.location.href="http://localhost/img/topic.php";
+                window.location.href="<?php echo $site_name;?>/topic.php";
             }
         console.log('success');
         })

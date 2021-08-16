@@ -2,6 +2,7 @@
 <html lang="en">
 <?php
 error_reporting(0);
+$site_name="http://localhost/img";
 session_start();
 $page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
 if (!isset($_SESSION['user_id']) && $page != 'index' && $page != 'user_page' && $page != 'user-view' && $page != 'user-list') {
