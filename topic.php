@@ -12,7 +12,7 @@
 </nav>
 <?php
 error_reporting(0);
-$page = file_get_contents('http://localhost/img/document.html');
+$page = file_get_contents($site_name .'/document.html');
 $doc = new DOMDocument();
 $doc->loadHTML($page);
 $xpath = new DomXPath($doc);
@@ -140,17 +140,17 @@ $j = 0; ?>
         console.log($formData);
         event.preventDefault();
         $.ajax({
-                 url: "http://localhost/img/xhr/topic.php",
-                 type: "GET",
-                 data: {
-                     'topic': $formData
+                url: "<?php echo $site_name;?>/xhr/topic.php",
+                type: "GET",
+                data: {
+                    'topic': $formData
                 },
                 contentType: "application/json"
                 // dataType: "jsonp"
             })
             .done(function(res) {
                 // if(res['status'] == 200){
-                window.location.href = "http://localhost/img/questions.php";
+                window.location.href = "<?php echo $site_name;?>/questions.php";
                 // }
                 console.log('success');
             })

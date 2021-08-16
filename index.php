@@ -76,7 +76,7 @@
                 </div>
             </div>
             <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-50 object-cover object-center rounded"
-                src="http://localhost/img/nurse.png">
+                src="<?php echo $site_name;?>/nurse.png">
         </div>
         <div class="flex flex-col pt-4 text-center w-full mb-20">
             <!-- <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">OUR TEAM</h1> -->
@@ -89,7 +89,7 @@
                 accuracy of the work you have completed.</p>
 
             <div class="flex-left">
-                <a href="http://localhost/img/user_page.php" class="flex-left ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">Next</a>
+                <a href="<?php echo $site_name;?>/user_page.php" class="flex-left ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">Next</a>
                 <!-- <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                     <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         class="w-5 h-5" viewBox="0 0 24 24">

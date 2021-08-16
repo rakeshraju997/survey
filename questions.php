@@ -6,7 +6,7 @@
         padding-left: 2.5rem !important;
 }
 .items_align{
-    padding: 5% 0%;
+    padding: 2% 0%;
 }
 .p-4 {
     padding: 1.5rem!important;
@@ -20,7 +20,7 @@
     
         <?php
         error_reporting(0);
-        $page = file_get_contents('http://localhost/img/test.html');
+        $page = file_get_contents( $site_name.'/test.html');
         $doc = new DOMDocument();
         $doc->loadHTML($page);
         $xpath = new DomXPath($doc);
@@ -167,7 +167,7 @@
                 var $formData = $("#" + form_id + " :input[value!='']").serializeArray();
                 event.preventDefault();
                 $.ajax({
-                        url: "http://localhost/img/xhr/questions.php",
+                        url: "<?php echo $site_name;?>/xhr/questions.php",
                         type: "GET",
                         data: {
                             'ID': ID,
@@ -177,7 +177,7 @@
                     })
                     .done(function(res) {
                         if (display() == true && res['status'] == 200) {
-                            window.location.href = "http://localhost/img/user_questions.php";
+                            window.location.href = "<?php echo $site_name;?>/user_questions.php";
                         }
                     })
                     .fail(function(e) {
