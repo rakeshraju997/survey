@@ -102,21 +102,21 @@
       
       <div class="relative mb-4">
         <label for="inp" class="inp">
-        <input type="text" name="user_name" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"  placeholder="&nbsp;">
+        <input type="text" name="user_name" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="&nbsp;" required>
         <span class="label">Name</span>
         <span class="focus-bg"></span>
         </label>
     </div>
     <div class="relative mb-4">
         <label for="inp" class="inp">
-        <input type="text" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"  placeholder="&nbsp;">
+        <input type="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="&nbsp;" required>
         <span class="label">Email</span>
         <span class="focus-bg"></span>
         </label>
     </div>
     <div class="relative mb-4">
         <label for="inp" class="inp leading-7 text-sm text-gray-600">
-        <input type="text" name="phone" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"  placeholder="&nbsp;">
+        <input type="text" name="phone" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="&nbsp;" required>
         <span class="label">Contact no</span>
         <span class="focus-bg"></span>
         </label>
