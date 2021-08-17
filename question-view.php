@@ -13,15 +13,15 @@ $key = array("", "0", "1");
     $nodeList = $xpath->query("///span[@class='c0']");
     $j = 1;
     $p = 1;
-    foreach ($nodeList as $item) {
-        if ($nodeList->item($j)->nodeValue != '+-----+') {
+    foreach ($nodeList as $item) {        
+        if ($nodeList->item($j)->nodeValue != '+-----+') {            
             echo $nodeList->item($j)->nodeValue . "<br>";
         } else if ($nodeList->item($j)->nodeValue == '+-----+') { 
             $question_id = $p; // $_REQUEST['id'];
             $i = 0;
             $query = "SELECT * FROM `questions` where `question_no` = $question_id";
-            $questions = mysqli_query($sqlConnect, $query);        
-            unset($oq,$oa,$ob,$oc,$od);
+            $questions = mysqli_query($sqlConnect, $query);
+            unset($oq, $oa, $ob, $oc, $od);
             while ($data = mysqli_fetch_assoc($questions)) {
                 $oq[] = $data['Q'];
                 $oa[] = $data['A'];
@@ -29,7 +29,7 @@ $key = array("", "0", "1");
                 $oc[] = $data['C'];
                 $od[] = $data['D'];
                 $i++;
-            }            
+            }
             $optionq = array_count_values($oq);
             $optiona = array_count_values($oa);
             $optionb = array_count_values($ob);
@@ -55,44 +55,45 @@ $key = array("", "0", "1");
             $dyes = Round(($optiond['1'] / $i) * 100);
             $dno = Round(($optiond['0'] / $i) * 100);
             $dnull = Round(($optiond[''] / $i) * 100);
+    ?>
+            Is the Question relevent :<br>
+            Yes : <?php echo $qyes; ?>% | No : <?php echo $qno; ?>% | Null : <?php echo $qnull; ?>%<br>
 
-            echo "Is the Question relevent : ";
-            echo "Yes : " . $qyes . " | No : " . $qno . " | Null : " . $qnull . "<br>";
-
-            echo "<br>Is the Option A relevent : ";
-            echo "Yes : " . $ayes . " | No : " . $ano . " | Null : " . $anull . "<br>";
-            echo "Rephrases :";
-            foreach (array_keys($optiona) as $rephrasea) {
+            <br>Is the Option A relevent : <br>
+            Yes : <?php echo $ayes; ?>% | No : <?php echo $ano; ?>% | Null : <?php echo $anull; ?>%<br>
+            Rephrases :
+            <?php foreach (array_keys($optiona) as $rephrasea) {
                 if (!in_array($rephrasea, $key)) {
                     echo $rephrasea . ", ";
                 }
-            }
-            echo "<br><br>Is the Option B relevent : ";
-            echo "Yes : " . $byes . " | No : " . $bno . " | Null : " . $bnull . "<br>";
-            echo "Rephrases :";
-            foreach (array_keys($optionb) as $rephraseb) {
+            } ?>
+            <br><br>Is the Option B relevent : <br>
+            Yes : <?php echo $byes; ?>% | No : <?php echo $bno; ?>% | Null : <?php echo $bnull; ?>%<br>
+            Rephrases :
+            <?php foreach (array_keys($optionb) as $rephraseb) {
                 if (!in_array($rephraseb, $key)) {
                     echo $rephraseb . ", ";
                 }
-            }
-            echo "<br><br>Is the Option C relevent : ";
-            echo "Yes : " . $cyes . " | No : " . $cno . " | Null : " . $cnull . "<br>";
-            echo "Rephrases :";
-            foreach (array_keys($optionc) as $rephrasec) {
+            } ?>
+            <br><br>Is the Option C relevent : <br>
+            Yes : <?php echo $cyes; ?>% | No : <?php echo $cno; ?>% | Null : <?php echo $cnull; ?>%<br>
+            Rephrases :
+            <?php foreach (array_keys($optionc) as $rephrasec) {
                 if (!in_array($rephrasec, $key)) {
                     echo $rephrasec . ", ";
                 }
-            }
-            echo "<br><br>Is the Option D relevent : ";
-            echo "Yes : " . $dyes . " | No : " . $dno . " | Null : " . $dnull . "<br>";
-            echo "Rephrases :";
-            foreach (array_keys($optiond) as $rephrased) {
+            } ?>
+            <br><br>Is the Option D relevent : <br>
+            Yes : <?php echo $dyes; ?>% | No : <?php echo $dno; ?>% | Null : <?php echo $dnull; ?>%<br>
+            Rephrases :
+    <?php foreach (array_keys($optiond) as $rephrased) {
                 if (!in_array($rephrased, $key)) {
                     echo $rephrased . ", ";
                 }
             }
-            $p++;
-            echo "<br>";
+            $p++;                                
+            echo "<br>------------------------------------<br>";
+            
         }
         ++$j;
     }
